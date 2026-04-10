@@ -1,24 +1,37 @@
-
 version: '3.8'
 services:
-  app:
+  harcama-takip-app:
     build: .
-    container_name: expense-app
+    container_name: harcama-takip-app
     ports:
       - "8081:8080"
     depends_on:
-      - db
+      - harcama-takip-db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/expenses
+      SPRING_DATASOURCE_URL: jdbc:postgresql://harcama-takip-db:5432/expenses
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
+    restart: unless-stopped
+    networks:
+      - harcama-takip-net
 
-  db:
+  harcama-takip-db:
     image: postgres:15
-    container_name: expense-db
+    container_name: harcama-takip-db
     environment:
       POSTGRES_DB: expenses
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - harcama-takip-net
+
+volumes:
+  db_data:
+
+networks:
+  harcama-takip-net:
