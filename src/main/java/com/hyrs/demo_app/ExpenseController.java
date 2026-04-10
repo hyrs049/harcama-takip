@@ -3,6 +3,7 @@ package com.hyrs.demo_app;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.Optional;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -62,10 +63,11 @@ public class ExpenseController {
 
     @GetMapping("/update/{id}")
     public String showUpdateForm(@PathVariable Long id, Model model) {
-        Expense expense = expenseService.getExpenseById(id);
-        if (expense == null) {
+        Optional<Expense> opt = expenseService.getExpenseById(id);
+        if (opt.isEmpty()) {
     return "redirect:/"; // veya hata sayfası
 }
+     Expense expense = opt.get();
         model.addAttribute("expense", expense);
         model.addAttribute("categories", List.of("Yemek","Ulaşım","Eğitim","Eğlence","Sağlık","Diğer"));
         return "update";
@@ -84,13 +86,13 @@ public String updateExpense(@PathVariable Long id,
     }
 
     // Güncellenecek kaydı bul
-    Expense existingExpense = expenseService.getExpenseById(id);
-    if (existingExpense == null) {
-        // Eğer kayıt yoksa ana sayfaya yönlendir
+    Optional<Expense> optExisting= expenseService.getExpenseById(id);
+    if(optExisting.isEmpty()){
         return "redirect:/";
     }
 
     // Alanları güncelle
+    Expense existingExpense = optExisting.get();
     existingExpense.setDescription(expense.getDescription());
     existingExpense.setAmount(expense.getAmount());
     existingExpense.setCategory(expense.getCategory());
