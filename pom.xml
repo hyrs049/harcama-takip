@@ -64,4 +64,8 @@
             </plugin>
         </plugins>
     </build>
+    <build>
+  <finalName>app</finalName>
+</build>
+
 </project>
