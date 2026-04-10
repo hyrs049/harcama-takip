@@ -32,6 +32,8 @@ services:
 
 volumes:
   db_data:
+  - ./jenkins_home:/var/jenkins_home
+  - ~/.m2:/root/.m2
 
 networks:
   harcama-takip-net:
