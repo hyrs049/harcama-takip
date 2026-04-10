@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/hyrs_049/harcama-takip.git'
+                git branch: 'main', url: 'https://github.com/hyrs049/harcama-takip.git'
             }
         }
         stage('Build') {
