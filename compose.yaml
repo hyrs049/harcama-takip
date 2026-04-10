@@ -1,6 +1,10 @@
 version: '3.8'
 services:
-  harcama-takip-app:
+  jenkins:
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - m2_cache:/root/.m2
+
     build: .
     container_name: harcama-takip-app
     ports:
@@ -31,9 +35,11 @@ services:
       - harcama-takip-net
 
 volumes:
-  db_data:
-  - ./jenkins_home:/var/jenkins_home
-  - ~/.m2:/root/.m2
+  db_data: {}
+  jenkins_home:
+    driver: local
+  m2_cache:
+    driver: local
 
 networks:
   harcama-takip-net:
