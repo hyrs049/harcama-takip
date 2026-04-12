@@ -3,11 +3,7 @@ pipeline {
 
     stages {
        
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
+    
         stage('Build') {
             steps {
                 sh './mvnw clean package -DskipTests'
@@ -23,10 +19,6 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
-         stage('Cleanup') {
-            steps {
-                cleanWs()   // Workspace'i temizler
-            }
-        }
+       
     }
 }
