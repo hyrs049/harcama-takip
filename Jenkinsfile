@@ -2,11 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Cleanup') {
-            steps {
-                cleanWs()   // Workspace'i temizler
-            }
-        }
+       
         stage('Checkout') {
             steps {
                 checkout scm
@@ -25,6 +21,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'docker-compose up -d'
+            }
+        }
+         stage('Cleanup') {
+            steps {
+                cleanWs()   // Workspace'i temizler
             }
         }
     }
