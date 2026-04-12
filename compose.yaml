@@ -12,7 +12,7 @@ services:
       context: .
       dockerfile: Dockerfile.jenkins
     ports:
-      - "8081:8080"
+      - "8090:8080"
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
