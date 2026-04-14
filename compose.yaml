@@ -34,7 +34,6 @@ services:
 
   harcama-takip-db:
     image: postgres:15
-    container_name: harcama-takip-db
     environment:
       POSTGRES_DB: expenses
       POSTGRES_USER: postgres
