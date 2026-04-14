@@ -8,7 +8,7 @@ services:
     depends_on:
       - harcama-takip-db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://harcama-takip-db:5432/expenses
+      SPRING_DATASOURCE_URL: jdbc:mysql://harcama-takip-db:3306/expenses
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
     restart: unless-stopped
@@ -33,15 +33,16 @@ services:
       - harcama-takip-net
 
   harcama-takip-db:
-    image: postgres:15
+    image: mysql:8
     environment:
-      POSTGRES_DB: expenses
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      MYSQL_DATABASE: expenses
+      MYSQL_USER: postgres
+      MYSQL_PASSWORD: postgres
+      MYSQL_ROOT_PASSWORD: postgres
     ports:
-      - "5432:5432"
+      - "3306:3306"
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/mysql
     restart: unless-stopped
     networks:
       - harcama-takip-net
