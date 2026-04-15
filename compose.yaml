@@ -4,13 +4,14 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8081:8080"
+      - "9091:9090"
     depends_on:
       - harcama-takip-db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://harcama-takip-db:3306/expenses
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+     SPRING_DATASOURCE_URL: jdbc:mysql://harcama-takip-db:3306/expenses
+     SPRING_DATASOURCE_USERNAME: root
+     SPRING_DATASOURCE_PASSWORD: postgres
+
     restart: unless-stopped
     networks:
       - harcama-takip-net
