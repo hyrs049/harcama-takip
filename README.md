@@ -4,3 +4,4 @@
 # Demo App
 Yeni satır eklendi test için
 **Harcama Takip Sistemi aylık olarak hacmananın tümünü gösterir.**
+**Grafikler ve Tablolar ile daha net harcamalrı görmüş oluruz**
