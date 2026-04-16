@@ -1,5 +1,5 @@
 # Harcama Takip Uygulaması
-
+control
 Kişisel harcamaları kolayca takip edebilmek için geliştirilmiş bir web uygulamasıdır.  
 Toplam harcamaları, kategori bazlı dağılımları ve tarih filtreleme özelliklerini içerir.  
 Frontend kısmı Thymeleaf ile hazırlanmış, backend kısmı Spring Boot kullanılarak geliştirilmiştir.  
@@ -13,6 +13,7 @@ Veriler MySQL veritabanında saklanmaktadır.
 - 📅 Harcamaları tarihe göre filtreleme
 - 🗄️ MySQL veritabanı entegrasyonu
 - 🐳 Docker ve Jenkins ile CI/CD entegrasyonu
+- ngrok 
 
 ---
 
