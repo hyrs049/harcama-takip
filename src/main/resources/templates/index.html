@@ -186,7 +186,8 @@
             <td>
               <span class="badge bg-light text-dark" th:text="${expense.category}">Kategori</span>
             </td>
-            <td th:text="${#dates.format(expense.expenseDate,'dd.MM.yyyy')}">05.04.2026</td>
+           <td th:text="${#temporals.format(expense.expenseDate,'dd.MM.yyyy')}"></td>
+
             <td class="text-end" th:text="${#numbers.formatDecimal(expense.amount,1,2)} + ' ₺'">0.00 ₺</td>
             <td class="table-actions">
               <!-- Güncelle butonu -->
