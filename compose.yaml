@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "9091:9090"
+      - "9092:9090"
     depends_on:
       - harcama-takip-db
     environment:
